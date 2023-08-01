@@ -334,6 +334,18 @@ switch:  #######################################################################
     id: "output_relay"
     pin: GPIO4
     on_turn_on:
-    - delay: 500ms
+    - delay: !lambda "return id(output_time).state & 'ms';"
     - switch.turn_off: "output_relay"
 ###########################################################################################
+
+###########################################################################################
+number:
+###########################################################################################
+  - platform: template
+    name: "Output delay (ms)"
+    id: "output_time"
+    optimistic: true
+    min_value: 100
+    max_value: 2000
+    initial_value: 500 
+    step: 1
