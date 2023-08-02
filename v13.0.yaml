@@ -69,10 +69,10 @@ globals:  ######################################################################
      restore_value: no
      initial_value: '0'
 ###########################################################################################
-   - id: global_relay_delay
-     type: int
-     restore_value: yes
-     initial_value: '500'
+#   - id: global_relay_delay
+#     type: int
+#     restore_value: yes
+#     initial_value: '500'
 
 ###########################################################################################
 external_components:  #####################################################################
@@ -340,7 +340,7 @@ switch:  #######################################################################
     pin: GPIO4
     on_turn_on:
     - delay: !lambda |-
-      return printf('%f ms',id(relay_delay).state);
+        return printf('%f ms', id(relay_delay).state);
     - switch.turn_off: "output_relay"
 ###########################################################################################
 
