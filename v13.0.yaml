@@ -334,7 +334,7 @@ switch:  #######################################################################
     id: "output_relay"
     pin: GPIO4
     on_turn_on:
-    - delay: !lambda "return (id(relay_delay).state & 'ms');"
+    - delay: !lambda "return printf ("%f ms", id(relay_delay).state);"
     - switch.turn_off: "output_relay"
 ###########################################################################################
 
