@@ -340,6 +340,7 @@ switch:  #######################################################################
     pin: GPIO4
     on_turn_on:
     - delay: !lambda |-
+        ESP_LOGI("watchdog", printf("%ims", id(relay_delay).state));
         return printf("%ims", id(relay_delay).state);
     - switch.turn_off: "output_relay"
 ###########################################################################################
